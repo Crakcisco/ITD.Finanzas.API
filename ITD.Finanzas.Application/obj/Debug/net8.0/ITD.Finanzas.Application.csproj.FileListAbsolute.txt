@@ -1,0 +1,15 @@
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.AssemblyInfoInputs.cache
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.AssemblyInfo.cs
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.csproj.CoreCompileInputs.cache
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.csproj.AssemblyReference.cache
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\bin\Debug\net8.0\ITD.Finanzas.Application.deps.json
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\bin\Debug\net8.0\ITD.Finanzas.Application.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\bin\Debug\net8.0\ITD.Finanzas.Application.pdb
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\bin\Debug\net8.0\ITD.Finanzas.Domain.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\bin\Debug\net8.0\ITD.Finanzas.Domain.pdb
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.csproj.CopyComplete
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\refint\ITD.Finanzas.Application.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.pdb
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Application\obj\Debug\net8.0\ref\ITD.Finanzas.Application.dll

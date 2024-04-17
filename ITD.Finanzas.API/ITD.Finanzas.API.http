@@ -1,0 +1,6 @@
+@ITD.Finanzas.API_HostAddress = http://localhost:5207
+
+GET {{ITD.Finanzas.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

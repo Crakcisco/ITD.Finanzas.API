@@ -1,0 +1,17 @@
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.csproj.AssemblyReference.cache
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.AssemblyInfoInputs.cache
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.AssemblyInfo.cs
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\bin\Debug\net8.0\ITD.Finanzas.Infraestructure.deps.json
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\bin\Debug\net8.0\ITD.Finanzas.Infraestructure.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\bin\Debug\net8.0\ITD.Finanzas.Infraestructure.pdb
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\bin\Debug\net8.0\ITD.Finanzas.Application.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\bin\Debug\net8.0\ITD.Finanzas.Domain.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\bin\Debug\net8.0\ITD.Finanzas.Application.pdb
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\bin\Debug\net8.0\ITD.Finanzas.Domain.pdb
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.csproj.CopyComplete
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\refint\ITD.Finanzas.Infraestructure.dll
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ITD.Finanzas.Infraestructure.pdb
+C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Prueba.Infraestructure\obj\Debug\net8.0\ref\ITD.Finanzas.Infraestructure.dll

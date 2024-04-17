@@ -1,0 +1,91 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "ITD.Finanzas.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ITD.Finanzas.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ITD.Finanzas.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ITD.Finanzas.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ITD.Finanzas.Domain/ITD.Finanzas.Domain.csproj",
+      "msbuildProject": "../ITD.Finanzas.Domain/ITD.Finanzas.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "ITD.Finanzas.Domain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\msc48\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
+      "projectName": "ITD.Finanzas.Application",
+      "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
+      "packagesPath": "C:\\Users\\msc48\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\msc48\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj": {
+              "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
