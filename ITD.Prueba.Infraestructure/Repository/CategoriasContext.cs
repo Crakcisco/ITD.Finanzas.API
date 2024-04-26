@@ -6,18 +6,71 @@ using ITD.Finanzas.Infraestructure.Services;
 using System.Xml.XPath;
 using System.Linq;
 using ITD.Finanzas.Domain.Enums;
+using ITD.Finanzas.Domain.DTO.DATA;
+using ITD.Finanzas.Domain.DTO.Request.Categorias;
 
 
 namespace ITD.Finanzas.Infraestructure.Repository
 {
     public class CategoriasContext : ICategoriasContext
     {
+        public ErrorData _errorData { get; set; }
         private BDServices _bDServices;
         public CategoriasContext(BDServices bDServices)
         {
             _bDServices = bDServices;
         }
 
+        //Agregue DELETE
+
+        public async Task<EntityResultContext> Delete(int id)
+        {
+            DynamicParameters dpr = new DynamicParameters();
+            dpr.Add("@id", id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
+
+            var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Categoria_DELETE", dpr); // Asumiendo que tienes un procedimiento almacenado para eliminar categorías
+
+            return result;
+        }
+
+
+        //Agregue PATCH
+        public async Task<EntityResultContext> Patch(RequestCategorias patch)
+        {
+            DynamicParameters dpr = new DynamicParameters();
+            dpr.Add("@id", patch.data.id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
+            dpr.Add("@nombre", patch.data.nombre, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+
+            var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Categoria_PATCH", dpr); // Asumiendo que tienes un procedimiento almacenado para actualizar categorías
+
+            if (result.code == 200)
+                return result;
+            else
+            {
+                _errorData.code = result.code.ToString();
+                _errorData.detail = result.result;
+                _errorData.tittle = "Error interno del servidor"; // Cambiado 'tittle' a 'title' para corregir el error tipográfico
+                _errorData.status = result.code;
+                return null;
+            }
+        }
+
+        public async Task<EntityResultContext> Post(RequestCategorias post)
+        {
+            DynamicParameters dpr = new DynamicParameters();
+            dpr.Add("@nombre", post.data.nombre, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Categoria_POST", dpr);
+            if (result.code == 200)
+                return result;
+            else
+            {
+                _errorData.code = result.code.ToString();
+                _errorData.detail = result.result;
+                _errorData.tittle = "Error interno del servidor";
+                _errorData.status = result.code;
+                return null;
+            }
+        }
         public async Task<List<EntityCategoriasContext>> Get(string nombre)
         {
             DynamicParameters dp = new();

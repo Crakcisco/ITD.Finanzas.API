@@ -10,7 +10,7 @@ namespace ITD.Finanzas.API.Controllers
 {
     public class Resumenes
     {
-        [Authorize]
+        //[Authorize]
         [Route("api/[controller]")]
         [ApiController]
         [Consumes(MediaTypeNames.Application.Json)]

@@ -9,3 +9,15 @@ C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Domai
 C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Domain\obj\Debug\net8.0\refint\ITD.Finanzas.Domain.dll
 C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.pdb
 C:\Users\msc48\OneDrive\Escritorio\myCoolApp\ITD.Finanzas.API\ITD.Finanzas.Domain\obj\Debug\net8.0\ref\ITD.Finanzas.Domain.dll
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\bin\Debug\net8.0\ITD.Finanzas.Domain.deps.json
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\bin\Debug\net8.0\ITD.Finanzas.Domain.dll
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\bin\Debug\net8.0\ITD.Finanzas.Domain.pdb
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.AssemblyInfoInputs.cache
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.AssemblyInfo.cs
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.csproj.CoreCompileInputs.cache
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.sourcelink.json
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.dll
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\refint\ITD.Finanzas.Domain.dll
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ITD.Finanzas.Domain.pdb
+C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Domain\obj\Debug\net8.0\ref\ITD.Finanzas.Domain.dll

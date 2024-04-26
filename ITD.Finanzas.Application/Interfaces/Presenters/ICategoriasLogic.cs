@@ -10,6 +10,9 @@ namespace ITD.Finanzas.Application.Interfaces.Presenters
 {
     public interface ICategoriasLogic
     {
+
         public Task<List<CategoriasAttributes>> GetCategoriasAsync(string nombre);
+
+
     }
 }

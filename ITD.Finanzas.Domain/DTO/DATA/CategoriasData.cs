@@ -9,7 +9,12 @@ namespace ITD.Finanzas.Domain.DTO.DATA
 {
     public class CategoriasData
     {
-        public int idCategorias { get; set; }
-        public List<CategoriasAttributes> attributes { get; set; }
+        public string type;
+
+        public string nombre { get; set; }
+        public CategoriasAttributes attributes { get; set; }
+
+        //Agregue PATCH
+        public int id { get; set; }
     }
 }

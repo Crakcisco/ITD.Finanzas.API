@@ -8,7 +8,7 @@ using System.Net.Mime;
 
 namespace ITD.Finanzas.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     [Consumes(MediaTypeNames.Application.Json)]

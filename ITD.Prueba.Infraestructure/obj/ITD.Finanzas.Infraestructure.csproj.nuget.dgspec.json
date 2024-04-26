@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj": {}
+    "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj": {
+    "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
+        "projectUniqueName": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
         "projectName": "ITD.Finanzas.Application",
-        "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
-        "packagesPath": "C:\\Users\\msc48\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\obj\\",
+        "projectPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
+        "packagesPath": "C:\\Users\\koke1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\msc48\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\koke1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj": {
-                "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj"
+              "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj": {
+                "projectPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj"
               }
             }
           }
@@ -38,11 +38,26 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,21 +74,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj": {
+    "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj",
         "projectName": "ITD.Finanzas.Domain",
-        "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj",
-        "packagesPath": "C:\\Users\\msc48\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\obj\\",
+        "projectPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj",
+        "packagesPath": "C:\\Users\\koke1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\msc48\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\koke1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,6 +108,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -114,21 +134,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj": {
+    "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj",
+        "projectUniqueName": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj",
         "projectName": "ITD.Finanzas.Infraestructure",
-        "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj",
-        "packagesPath": "C:\\Users\\msc48\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Prueba.Infraestructure\\obj\\",
+        "projectPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Prueba.Infraestructure\\ITD.Finanzas.Infraestructure.csproj",
+        "packagesPath": "C:\\Users\\koke1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Prueba.Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\msc48\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\koke1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -142,11 +162,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj": {
-                "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj"
+              "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj": {
+                "projectPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj"
               },
-              "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj": {
-                "projectPath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj"
+              "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj": {
+                "projectPath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Domain\\ITD.Finanzas.Domain.csproj"
               }
             }
           }
@@ -155,6 +175,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -164,6 +189,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.1.35, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
@@ -190,7 +219,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

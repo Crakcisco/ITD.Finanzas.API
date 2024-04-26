@@ -21,5 +21,6 @@ namespace ITD.Finanzas.Infraestructure.Repository.Context
             _BD = new BDServices(_configuration);
         }
         ICategoriasContext CategoriasContext => new CategoriasContext(_BD);
+        
     }
 }

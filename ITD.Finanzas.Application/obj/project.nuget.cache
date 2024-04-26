@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Sq4PLC5DG1nuGMWUlhc7FEu+Itwd97eWiwKEG3+1OcQvOEZcgyPYPQW6P+OTn6UI0ZHptG77oeSGT68vCssLQg==",
+  "dgSpecHash": "dz+toWhouo5Wc67cjM1seagyOX3H31BDp6AHc6r4q2jN/0tIGO6AbuxN5GFP8Ib7VYkc3FroN9hH4bQ7O8C6pw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\msc48\\OneDrive\\Escritorio\\myCoolApp\\ITD.Finanzas.API\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\koke1\\source\\repos\\Desarrollo-Moviles\\ITD.Finanzas.Application\\ITD.Finanzas.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\koke1\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
+    "C:\\Users\\koke1\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\koke1\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\koke1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\koke1\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
