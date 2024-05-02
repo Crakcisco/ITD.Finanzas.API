@@ -16,6 +16,8 @@ namespace ITD.Finanzas.Infraestructure.Services
         public BDServices(IConfiguration configuration)
         {
             _conection = configuration?.GetConnectionString("DefaultConnection");
+
+
         }
         private IDbConnection CreateConnection()
         {

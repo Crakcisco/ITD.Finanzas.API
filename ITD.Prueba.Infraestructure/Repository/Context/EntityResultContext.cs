@@ -4,5 +4,7 @@
     {
         public int code { get; set; }
         public string result { get; set; }
+
+      
     }
 }

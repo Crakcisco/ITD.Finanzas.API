@@ -8,6 +8,7 @@ namespace ITD.Finanzas.Application.Interfaces.Context
 {
     public interface IFinanzasRepositoryContext
     {
+
         public ICategoriasContext CategoriasContext {  get; }
         public IConfiguracionesContext ConfiguracionesContext { get; }
         public IUsuarioContext UsuarioContext { get; }
