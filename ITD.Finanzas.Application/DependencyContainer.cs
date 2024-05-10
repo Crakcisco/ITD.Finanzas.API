@@ -13,8 +13,15 @@ namespace ITD.Finanzas.Application
         {
 
             services.AddScoped < ICategoriasLogic, CategoriasLogic>();
-            
-           
+            services.AddScoped<IConfiguracionesLogic, ConfiguracionesLogic>();
+            services.AddScoped<IGastosLogic, GastosLogic>();
+            services.AddScoped<IIngresosLogic, IngresosLogic>();
+            services.AddScoped<IPresupuestosLogic, PresupuestosLogic>();
+            services.AddScoped<IRegistrosLogic, RegistrosLogic>();
+            services.AddScoped<ITransaccionesLogic, TransaccionesLogic>();
+            services.AddScoped<IUsuarioLogic, UsuarioLogic>();
+
+
 
             return services;
         }

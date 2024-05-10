@@ -8,6 +8,7 @@ namespace ITD.Finanzas.Domain.POCOS.Context
 {
     public class EntityIngresosContext
     {
+        public int id { get; set; }
         public string result { get; set; }
         public int code { get; set; }
         public int usuario_id { get; set; }

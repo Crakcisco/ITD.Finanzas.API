@@ -1,3 +1,6 @@
+using ITD.Finanzas.Domain.DTO.DATA;
+using ITD.Finanzas.Domain.DTO.Request.Categorias;
+using ITD.Finanzas.Domain.DTO.Request.Usuarios;
 using ITD.Finanzas.Domain.POCOS.Context;
 using System;
 using System.Collections.Generic;
@@ -9,6 +12,13 @@ namespace ITD.Finanzas.Application.Interfaces.Context
 {
     public interface IUsuarioContext
     {
-        public Task<List<EntityUsuarioContext>> Get(string nombre);
+        public ErrorData _errorData { get; set; }
+
+        public Task<List<EntityUsuarioContext>> Get(int id);
+        public Task<EntityResultContext> Post(RequestUsuario post);
+        public Task<EntityResultContext> Patch(RequestUsuario patch);
+
+        public Task<EntityResultContext> Delete(int id);
+
     }
 }

@@ -9,7 +9,8 @@ namespace ITD.Finanzas.Domain.DTO.DATA
 {
     public class GastosData
     {
-        public int idGastos { get; set; }
-        public List<GastosAttributes> attributes { get; set; }
+        public string? type { get; set; }
+
+        public List<GastosDto>? attributes { get; set; }
     }
 }

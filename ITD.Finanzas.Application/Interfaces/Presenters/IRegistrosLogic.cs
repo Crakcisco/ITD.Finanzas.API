@@ -1,4 +1,5 @@
 using ITD.Finanzas.Domain.DTO.DATA.Atributes;
+using ITD.Finanzas.Domain.DTO.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace ITD.Finanzas.Application.Interfaces.Presenters
 {
     public interface IRegistrosLogic
     {
-        public Task<List<RegistrosAttributes>> GetRegistrosAsync(int usuario_id);
+        public ErrorResponse _errorResponse { get; set; }
+        public List<string> _error { get; set; }
+        public ValueTask<RegistrosResponse> Get(int id);
     }
 }

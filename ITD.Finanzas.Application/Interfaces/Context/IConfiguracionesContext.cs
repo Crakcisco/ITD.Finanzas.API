@@ -1,3 +1,4 @@
+using ITD.Finanzas.Domain.DTO.DATA;
 using ITD.Finanzas.Domain.POCOS.Context;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace ITD.Finanzas.Application.Interfaces.Context
 
         public interface IConfiguracionesContext
         {
-            public Task<List<EntityConfiguracionesContext>> Get(Boolean notificaciones_activas);
-        }
+        public ErrorData _errorData { get; set; }
+        public  Task<List<EntityConfiguracionesContext>> Get(int id);
+    }
     
 }

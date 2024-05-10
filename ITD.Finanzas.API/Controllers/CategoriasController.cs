@@ -35,6 +35,9 @@ namespace ITD.Finanzas.API.Controllers
         //GET
         [HttpGet]
         [Route("Get")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+
         [ProducesResponseType(typeof(List<CategoriasResponse>), (int)StatusResult.Success)]
         [ProducesResponseType(typeof(ErrorResponse), (int)StatusResult.badRequest)]
         public async Task<IActionResult> Get(string nombre)
@@ -47,8 +50,10 @@ namespace ITD.Finanzas.API.Controllers
 
         [HttpPost]
         [Route("Post")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType(typeof(CategoriasResponse), (int)HttpStatusCode.Created)]
+        [ProducesResponseType(typeof(CategoriasResponsePost), (int)HttpStatusCode.Created)]
 
         public async Task<IActionResult> Post(RequestCategorias post)
         {
@@ -62,6 +67,8 @@ namespace ITD.Finanzas.API.Controllers
         //Agregue PATCH
         [HttpPatch]
         [Route("Patch")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(CategoriasResponse), (int)HttpStatusCode.OK)] // Cambiado HttpStatusCode.Created a HttpStatusCode.OK ya que PATCH no crea un nuevo recurso, sino que actualiza uno existente
         public async Task<IActionResult> Patch(RequestCategorias patch)
@@ -76,6 +83,8 @@ namespace ITD.Finanzas.API.Controllers
 
         //Agregue DELETE
         [HttpDelete("Delete")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(CategoriasResponse), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Delete(int id)

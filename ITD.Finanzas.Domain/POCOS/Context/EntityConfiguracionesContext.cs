@@ -10,6 +10,7 @@ namespace ITD.Finanzas.Domain.POCOS.Context
     {
         public string result { get; set; }
         public int code { get; set; }
+        public int id { get; set; }
         public int usuario_id { get; set; }
         public bool notificaciones_activas { get; set; }
     }

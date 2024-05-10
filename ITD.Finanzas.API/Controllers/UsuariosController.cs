@@ -1,34 +1,104 @@
+using ITD.Finanzas.Application.Interfaces.Context;
 using ITD.Finanzas.Application.Interfaces.Presenters;
 using ITD.Finanzas.Application.Presenters;
+using ITD.Finanzas.Domain.DTO.Request.Categorias;
+using ITD.Finanzas.Domain.DTO.Request.Usuarios;
+using ITD.Finanzas.Domain.DTO.Response;
 using ITD.Finanzas.Domain.Enums;
-using Microsoft.AspNetCore.Authorization;
+using ITD.Finanzas.Infraestructure.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Net;
 using System.Net.Mime;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace ITD.Finanzas.API.Controllers
 {
-    
-        //[Authorize]
-        [Route("api/[controller]")]
-        [ApiController]
+    //[Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [Produces(MediaTypeNames.Application.Json)]
+
+
+
+    public class UsuariosController : ControllerBase
+    {
+        private readonly IUsuarioLogic _usuarioLogic;
+
+        public UsuariosController(IUsuarioLogic usuariologic)
+        {
+            _usuarioLogic = usuariologic;
+
+        }
+
+        //GET
+        [HttpGet]
+        [Route("Get")]
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
-        public class UsuariosController : ControllerBase
-        {
-            private readonly IUsuarioLogic _usuariosLogic;
-            public UsuariosController(IUsuarioLogic usuariosLogic)
-            {
-                _usuariosLogic = usuariosLogic;
-            }
-            [HttpGet]
-            [ProducesResponseType(typeof(List<UsuarioLogic>), (int)StatusResult.Success)]
-            [ProducesResponseType(typeof(Error), (int)StatusResult.badRequest)]
 
-            public async Task<IActionResult> Get(string nombre)
-            {
-                return Ok(await _usuariosLogic.GetUsuarioAsync(nombre));
-            }
+        [ProducesResponseType(typeof(List<UsuarioResponse>), (int)StatusResult.Success)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)StatusResult.badRequest)]
+        public async Task<IActionResult> Get(int id)
+        {
+            return Ok(await _usuarioLogic.Get(id));
         }
+
+        //Post
+
+
+        [HttpPost]
+        [Route("Post")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(UsuarioResponsePost), (int)HttpStatusCode.Created)]
+
+        public async Task<IActionResult> Post(RequestUsuario post)
+        {
+            var result = await _usuarioLogic.Post(post);
+            if (result == null)
+                return Created("www.google.com", result);
+            return BadRequest(_usuarioLogic._errorResponse);
+
+        }
+
+        //Agregue PATCH
+        [HttpPatch]
+        [Route("Patch")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(UsuarioResponse), (int)HttpStatusCode.OK)] // Cambiado HttpStatusCode.Created a HttpStatusCode.OK ya que PATCH no crea un nuevo recurso, sino que actualiza uno existente
+        public async Task<IActionResult> Patch(RequestUsuario patch)
+        {
+            var result = await _usuarioLogic.Patch(patch);
+            if (result == null)
+                return BadRequest(_usuarioLogic._errorResponse);
+
+            return Ok(result);
+        }
+
+
+        //Agregue DELETE
+        [HttpDelete("Delete")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(UsuarioResponse), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _usuarioLogic.Delete(id);
+            if (result == null)
+                return NotFound(_usuarioLogic._errorResponse);
+
+            return Ok(result);
+        }
+
+
+
     }
 
+}

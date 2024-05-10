@@ -17,5 +17,8 @@ namespace ITD.Finanzas.Domain.DTO.DATA.Atributes
         public string motivo { get; set; }
         public string tipo_ingreso { get; set; }
         public string notas { get; set; }
+
+        public string mensaje { get; set; }
+  
     }
 }

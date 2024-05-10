@@ -9,6 +9,7 @@ namespace ITD.Finanzas.Application.Interfaces.Context
 {
     public interface ITransaccionesContext
     {
-        public Task<List<EntityTransaccionesContext>> Get(string titulo);
+        public Task<List<EntityTransaccionesContext>> Get(int id);
+     
     }
 }

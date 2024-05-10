@@ -1,10 +1,16 @@
+using ITD.Finanzas.Application.Interfaces.Context;
 using ITD.Finanzas.Application.Interfaces.Presenters;
 using ITD.Finanzas.Application.Presenters;
+using ITD.Finanzas.Domain.DTO.Request.Categorias;
+using ITD.Finanzas.Domain.DTO.Response;
 using ITD.Finanzas.Domain.Enums;
-using Microsoft.AspNetCore.Authorization;
+using ITD.Finanzas.Infraestructure.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Net;
 using System.Net.Mime;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace ITD.Finanzas.API.Controllers
 {
@@ -13,20 +19,32 @@ namespace ITD.Finanzas.API.Controllers
     [ApiController]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
+
+
+
     public class TransaccionesController : ControllerBase
     {
         private readonly ITransaccionesLogic _transaccionesLogic;
+
         public TransaccionesController(ITransaccionesLogic transaccionesLogic)
         {
             _transaccionesLogic = transaccionesLogic;
-        }
-        [HttpGet]
-        [ProducesResponseType(typeof(List<TransaccionesLogic>), (int)StatusResult.Success)]
-        [ProducesResponseType(typeof(Error), (int)StatusResult.badRequest)]
 
-        public async Task<IActionResult> Get(string titulo)
-        {
-            return Ok(await _transaccionesLogic.GetTransaccionesAsync(titulo));
         }
+
+        //GET
+        [HttpGet]
+        [Route("Get")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+
+        [ProducesResponseType(typeof(List<PresupuestosResponse>), (int)StatusResult.Success)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)StatusResult.badRequest)]
+        public async Task<IActionResult> Get(int id)
+        {
+            return Ok(await _transaccionesLogic.Get(id));
+        }
+
     }
+
 }

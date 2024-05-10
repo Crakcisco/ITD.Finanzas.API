@@ -9,7 +9,8 @@ namespace ITD.Finanzas.Domain.DTO.DATA
 {
     public class UsuarioData
     {
-        public int idUsuarios {  get; set; }
-        public List<UsuarioAttributes> attributes { get; set; }
+        public string? type { get; set; }
+
+        public List<UsuarioDto>? attributes { get; set; }
     }
 }
