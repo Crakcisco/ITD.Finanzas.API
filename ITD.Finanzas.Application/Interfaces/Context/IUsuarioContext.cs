@@ -12,11 +12,12 @@ namespace ITD.Finanzas.Application.Interfaces.Context
 {
     public interface IUsuarioContext
     {
+
         public ErrorData _errorData { get; set; }
 
-        public Task<List<EntityUsuarioContext>> Get(int id);
+        public Task<List<EntityUsuarioContext>> GetAll();
         public Task<EntityResultContext> Post(RequestUsuario post);
-        public Task<EntityResultContext> Patch(RequestUsuario patch);
+        public Task<EntityResultContext> Patch(RequestUsuarioPatch patch);
 
         public Task<EntityResultContext> Delete(int id);
 

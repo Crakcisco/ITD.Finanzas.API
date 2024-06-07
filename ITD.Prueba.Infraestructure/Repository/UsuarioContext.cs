@@ -1,61 +1,64 @@
-
 using Dapper;
 using ITD.Finanzas.Application.Interfaces.Context;
 using ITD.Finanzas.Domain.POCOS.Context;
 using ITD.Finanzas.Infraestructure.Services;
-using System.Xml.XPath;
+using System.Collections.Generic;
 using System.Linq;
-using ITD.Finanzas.Domain.Enums;
-using ITD.Finanzas.Domain.DTO.DATA;
-using ITD.Finanzas.Domain.DTO.Request.Categorias;
-using ITD.Finanzas.Application.Interfaces.Presenters;
+using System.Threading.Tasks;
 using ITD.Finanzas.Domain.DTO.Request.Usuarios;
-
+using ITD.Finanzas.Domain.DTO.DATA;
+using ITD.Finanzas.Domain.Enums;
 
 namespace ITD.Finanzas.Infraestructure.Repository
 {
     public class UsuarioContext : IUsuarioContext
     {
         public List<string> _error { get; set; }
+        private readonly BDServices _bDServices;
         public ErrorData _errorData { get; set; }
-        private BDServices _bDServices;
+
         public UsuarioContext(BDServices bDServices)
         {
             _bDServices = bDServices;
+            _errorData = new ErrorData();
         }
 
-
-        public async Task<List<EntityUsuarioContext>> Get(int id)
+        public async Task<List<EntityUsuarioContext>> GetAll()
         {
-            DynamicParameters dp = new();
-            dp.Add("@id", id, System.Data.DbType.Int32); // Suponiendo que el nombre del parámetro en el procedimiento almacenado sea configuracionId
-            var result = await _bDServices.ExecuteStoredProcedureQuery<EntityUsuarioContext>("Usuario_GET", dp);
-            List<EntityUsuarioContext> configuraciones = result.ToList();
-
-            if (configuraciones.Count > 0)
-            {
-                switch (configuraciones[0].code)
-                {
-                    case (int)StatusResult.Success:
-                        return configuraciones;
-                    case (int)StatusResult.badRequest:
-                        return new List<EntityUsuarioContext>();
-                    default:
-                        return new List<EntityUsuarioContext>();
-                }
-            }
-            return new List<EntityUsuarioContext>();
+            var result = await _bDServices.ExecuteStoredProcedureQuery<EntityUsuarioContext>("Usuario_GET_ALL");
+            return result.ToList();
         }
 
-        //Post
+
+        // POST
         public async Task<EntityResultContext> Post(RequestUsuario post)
         {
             DynamicParameters dpr = new DynamicParameters();
-            dpr.Add("@nombre", post.data.nombre, System.Data.DbType.String, System.Data.ParameterDirection.Input);
-            dpr.Add("@email", post.data.email, System.Data.DbType.String, System.Data.ParameterDirection.Input);
-            dpr.Add("@password", post.data.password, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            dpr.Add("@p_nombre", post.data.nombre, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            dpr.Add("@p_email", post.data.email, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            dpr.Add("@p_password", post.data.password, System.Data.DbType.String, System.Data.ParameterDirection.Input);
 
             var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Usuario_POST", dpr);
+            if (result != null && result.code == 200)
+                return result;
+
+            _errorData.code = result?.code.ToString() ?? "500";
+            _errorData.detail = result?.result ?? "Error interno del servidor";
+            _errorData.tittle = "Error interno del servidor";
+            _errorData.status = result?.code ?? 500;
+            return null;
+        }
+
+        // PATCH
+        public async Task<EntityResultContext> Patch(RequestUsuarioPatch patch)
+        {
+            DynamicParameters dpr = new DynamicParameters();
+            dpr.Add("@currentEmail", patch.data.currentEmail, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            dpr.Add("@newName", patch.data.newName, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            dpr.Add("@newEmail", patch.data.newEmail, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+
+            var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Usuario_PATCH", dpr);
+
             if (result.code == 200)
                 return result;
             else
@@ -67,39 +70,23 @@ namespace ITD.Finanzas.Infraestructure.Repository
                 return null;
             }
         }
+  
 
-        //Agregue PATCH
-        public async Task<EntityResultContext> Patch(RequestUsuario patch)
-        {
-            DynamicParameters dpr = new DynamicParameters();
-            dpr.Add("@nombre", patch.data.nombre, System.Data.DbType.String, System.Data.ParameterDirection.Input);
-            dpr.Add("@email", patch.data.email, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
-
-            var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Usuario_PATCH", dpr); // Asumiendo que tienes un procedimiento almacenado para actualizar categorías
-
-            if (result.code == 200)
-                return result;
-            else
-            {
-                _errorData.code = result.code.ToString();
-                _errorData.detail = result.result;
-                _errorData.tittle = "Error interno del servidor"; // Cambiado 'tittle' a 'title' para corregir el error tipográfico
-                _errorData.status = result.code;
-                return null;
-            }
-        }
-
-        //Agregue DELETE
-
+        // DELETE
         public async Task<EntityResultContext> Delete(int id)
         {
             DynamicParameters dpr = new DynamicParameters();
             dpr.Add("@id", id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
 
-            var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Usuario_DELETE", dpr); // Asumiendo que tienes un procedimiento almacenado para eliminar categorías
+            var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Usuario_DELETE", dpr);
+            if (result != null && result.code == 200)
+                return result;
 
-            return result;
+            _errorData.code = result?.code.ToString() ?? "500";
+            _errorData.detail = result?.result ?? "Error interno del servidor";
+            _errorData.tittle = "Error interno del servidor";
+            _errorData.status = result?.code ?? 500;
+            return null;
         }
-
     }
 }

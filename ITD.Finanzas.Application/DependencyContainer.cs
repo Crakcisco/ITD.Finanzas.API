@@ -20,6 +20,8 @@ namespace ITD.Finanzas.Application
             services.AddScoped<IRegistrosLogic, RegistrosLogic>();
             services.AddScoped<ITransaccionesLogic, TransaccionesLogic>();
             services.AddScoped<IUsuarioLogic, UsuarioLogic>();
+            services.AddScoped<ILoginLogic, LoginLogic>();
+
 
 
 

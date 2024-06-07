@@ -7,17 +7,13 @@ using ITD.Finanzas.Domain.DTO.Request.Categorias;
 using ITD.Finanzas.Domain.DTO.Request.Gastos;
 using ITD.Finanzas.Domain.DTO.Response;
 using ITD.Finanzas.Domain.POCOS.Context;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ITD.Finanzas.Application.Presenters
 {
     public class GastosLogic : IGastosLogic
     {
-
         public List<string> _error { get; set; }
         public ErrorResponse _errorResponse { get; set; }
 
@@ -31,7 +27,6 @@ namespace ITD.Finanzas.Application.Presenters
             _errorResponse = new ErrorResponse();
         }
 
-        //GET
         public async ValueTask<GastosResponseGet> Get(int id)
         {
             var gastos = await _repo.GastosContext.Get(id);
@@ -45,15 +40,13 @@ namespace ITD.Finanzas.Application.Presenters
                 });
             }
 
-            // Devolver la respuesta después de completar el bucle foreach
             return new GastosResponseGet() { data = new GastosData() { attributes = output, type = "Gastos" } };
         }
 
-        //Agregue PATCH
         public async ValueTask<GastosResponsePost> Patch(RequestGastos patch)
         {
             var gastos = await _repo.GastosContext.Patch(patch);
-            if (gastos.code == 200) // Cambiado de 201 a 200 para reflejar el éxito en la modificación
+            if (gastos != null && gastos.code == 200)
             {
                 return new GastosResponsePost()
                 {
@@ -61,7 +54,7 @@ namespace ITD.Finanzas.Application.Presenters
                     {
                         attributes = new GastosAttributes()
                         {
-                            usuario_id = patch.data.id, // Utilizando el nuevo nombre proporcionado en la solicitud
+                            usuario_id = patch.data.usuario_id,
                             categoria_id = patch.data.categoria_id,
                             titulo = patch.data.titulo,
                             cantidad = patch.data.cantidad,
@@ -71,37 +64,50 @@ namespace ITD.Finanzas.Application.Presenters
                             tipo_gasto = patch.data.tipo_gasto,
                             notas = patch.data.notas
                         },
-                        type = "gastos"
+                        type = "Gastos"
                     }
                 };
             }
             _errorResponse.errors = new List<ErrorData>()
-        {
-            new ErrorData()
             {
-                code = gastos.code.ToString(),
-                detail = gastos.result,
-                status = gastos.code,
-                tittle = "Error interno del servidor" // Corregido el nombre de la propiedad de 'tittle' a 'title'
-            }
-        };
+                new ErrorData()
+                {
+                    code = gastos?.code.ToString() ?? "500",
+                    detail = gastos?.result ?? "Error interno del servidor",
+                    status = gastos?.code ?? 500,
+                    tittle = "Error interno del servidor"
+                }
+            };
             return null;
         }
-
-        //POST
 
         public async ValueTask<GastosResponsePost> Post(RequestGastos post)
         {
             var gastos = await _repo.GastosContext.Post(post);
-            if (gastos.code == 201)
-                return new GastosResponsePost() { data = new GastosDataPost() { attributes = new GastosAttributes() { mensaje = gastos.result }, type = "Categorias" } };
-            _errorResponse.errors = new List<ErrorData>() { new ErrorData() { code = gastos.code.ToString(), detail = gastos.result, status = gastos.code, tittle = "Error interno del servidor" } };
+            if (gastos != null && gastos.code == 201)
+            {
+                return new GastosResponsePost()
+                {
+                    data = new GastosDataPost()
+                    {
+                        attributes = new GastosAttributes() { mensaje = gastos.result },
+                        type = "Gastos"
+                    }
+                };
+            }
+            _errorResponse.errors = new List<ErrorData>
+            {
+                new ErrorData
+                {
+                    code = gastos?.code.ToString() ?? "500",
+                    detail = gastos?.result ?? "Error interno del servidor",
+                    status = gastos?.code ?? 500,
+                    tittle = "Error interno del servidor"
+                }
+            };
             return null;
-
         }
 
-
-        //Delete
         public async ValueTask<GastosResponseDelete> Delete(int id)
         {
             var gastos = await _repo.GastosContext.Delete(id);
@@ -110,6 +116,5 @@ namespace ITD.Finanzas.Application.Presenters
             _errorResponse.errors = new List<ErrorData>() { new ErrorData() { code = gastos.code.ToString(), detail = gastos.result, status = gastos.code, tittle = "Error interno del servidor" } };
             return null;
         }
-
     }
 }

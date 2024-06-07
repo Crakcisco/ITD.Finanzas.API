@@ -12,11 +12,12 @@ namespace ITD.Finanzas.Application.Interfaces.Presenters
 {
     public interface IUsuarioLogic
     {
+
         public ErrorResponse _errorResponse { get; set; }
     public List<string> _error { get; set; }
-    public ValueTask<UsuarioResponse> Get(int id);
+        public  ValueTask<List<UsuarioResponse>> GetAll();
         public ValueTask<UsuarioResponsePost> Post(RequestUsuario post);
-        public ValueTask<UsuarioResponsePost> Patch(RequestUsuario patch);
+        public ValueTask<UsuarioResponsePost> Patch(RequestUsuarioPatch patch);
         public ValueTask<UsuarioResponseDelete> Delete(int id);
     }
 }

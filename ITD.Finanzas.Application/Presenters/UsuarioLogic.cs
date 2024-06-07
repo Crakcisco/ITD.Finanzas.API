@@ -1,29 +1,22 @@
-using ITD.Finanzas.Application.Interfaces;
 using ITD.Finanzas.Application.Interfaces.Context;
 using ITD.Finanzas.Application.Interfaces.Presenters;
-using ITD.Finanzas.Domain.DTO;
 using ITD.Finanzas.Domain.DTO.DATA;
 using ITD.Finanzas.Domain.DTO.DATA.Atributes;
-using ITD.Finanzas.Domain.DTO.Request.Categorias;
 using ITD.Finanzas.Domain.DTO.Request.Usuarios;
 using ITD.Finanzas.Domain.DTO.Response;
-using ITD.Finanzas.Domain.POCOS.Context;
-using System;
+using ITD.Finanzas.Domain.Enums;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ITD.Finanzas.Application.Presenters
 {
     public class UsuarioLogic : IUsuarioLogic
     {
-        public List<string> _error { get; set; }
-        public ErrorResponse _errorResponse { get; set; }
-
-
-        private readonly IFinanzasRepositoryContext _finanzasRepositoryContext;
         private readonly IFinanzasRepositoryContext _repo;
+        public ErrorResponse _errorResponse { get; set; }
+        public ErrorData _errorData { get; set; }
+        public List<string> _error { get; set; }
 
         public UsuarioLogic(IFinanzasRepositoryContext repo)
         {
@@ -31,84 +24,107 @@ namespace ITD.Finanzas.Application.Presenters
             _errorResponse = new ErrorResponse();
         }
 
-        //GET
-        public async ValueTask<UsuarioResponse> Get(int id)
+        public async ValueTask<List<UsuarioResponse>> GetAll()
         {
-            var usuarios = await _repo.UsuarioContext.Get(id);
-            List<UsuarioDto> output = new List<UsuarioDto>();
-
-            foreach (EntityUsuarioContext a in usuarios)
-            {
-                output.Add(new UsuarioDto()
-                {
-                    id = a.id
-                });
-            }
-
-            // Devolver la respuesta después de completar el bucle foreach
-            return new UsuarioResponse() { data = new UsuarioData() { attributes = output, type = "Usuarios" } };
+            var usuarios = await _repo.UsuarioContext.GetAll();
+            List<UsuarioDto> output = usuarios.Select(u => new UsuarioDto { id = u.id, nombre= u.nombre, email= u.email }).ToList(); //lo que se muestra
+            return new List<UsuarioResponse> { new UsuarioResponse { data = new UsuarioData { attributes = output, type = "Usuarios" } } };
         }
 
-        //POST
 
         public async ValueTask<UsuarioResponsePost> Post(RequestUsuario post)
         {
             var usuarios = await _repo.UsuarioContext.Post(post);
-            if (usuarios.code == 201)
-                return new UsuarioResponsePost() { data = new UsuarioDataPost() { attributes = new UsuarioAttributes() { mensaje = usuarios.result }, type = "Categorias" } };
-            _errorResponse.errors = new List<ErrorData>() { new ErrorData() { code = usuarios.code.ToString(), detail = usuarios.result, status = usuarios.code, tittle = "Error interno del servidor" } };
-            return null;
-
+            if (usuarios != null && usuarios.code == 200)
+            {
+                return new UsuarioResponsePost
+                {
+                    data = new UsuarioDataPost
+                    {
+                        attributes = new UsuarioAttributes { mensaje = usuarios.result },
+                        type = "Usuarios"
+                    }
+                };
+            }
+            else
+            {
+                _errorResponse.errors = new List<ErrorData>
+                {
+                    new ErrorData
+                    {
+                        code = usuarios?.code.ToString() ?? "500",
+                        detail = usuarios?.result ?? "Error interno del servidor",
+                        status = usuarios?.code ?? 500,
+                        tittle = "Error interno del servidor"
+                    }
+                };
+                return null;
+            }
         }
 
-        //Agregue PATCH
-        public async ValueTask<UsuarioResponsePost> Patch(RequestUsuario patch)
+        public async ValueTask<UsuarioResponsePost> Patch(RequestUsuarioPatch patch)
         {
             var usuarios = await _repo.UsuarioContext.Patch(patch);
-            if (usuarios .code == 200) // Cambiado de 201 a 200 para reflejar el éxito en la modificación
+            if (usuarios != null && usuarios.code == 200)
             {
-                return new UsuarioResponsePost()
+                return new UsuarioResponsePost
                 {
-                    data = new UsuarioDataPost()
+                    data = new UsuarioDataPost
                     {
-                        attributes = new UsuarioAttributes()
+                        attributes = new UsuarioAttributes
                         {
-
-                            nombre = patch.data.nombre, // Utilizando el nuevo nombre proporcionado en la solicitud
-                            email = patch.data.email
+                            nombre = patch.data.newName,
+                            email = patch.data.newEmail
                         },
                         type = "usuarios"
                     }
                 };
             }
-            _errorResponse.errors = new List<ErrorData>()
-        {
-            new ErrorData()
+            else
             {
-                code = usuarios.code.ToString(),
-                detail = usuarios.result,
-                status = usuarios.code,
-                tittle = "Error interno del servidor" // Corregido el nombre de la propiedad de 'tittle' a 'title'
+                _errorResponse.errors = new List<ErrorData>
+        {
+            new ErrorData
+            {
+                code = usuarios?.code.ToString() ?? "500",
+                detail = usuarios?.result ?? "Error interno del servidor",
+                status = usuarios?.code ?? 500,
+                tittle = "Error interno del servidor"
             }
         };
-            return null;
+                return null;
+            }
         }
 
-        //Delete
+
         public async ValueTask<UsuarioResponseDelete> Delete(int id)
         {
             var usuarios = await _repo.UsuarioContext.Delete(id);
-            if (usuarios.code == 200)
-                return new UsuarioResponseDelete() { data = new UsuarioDataDelete() { attributes = new UsuarioAttributesDelete() { mensaje = usuarios.result }, type = "usuarios" } };
-            _errorResponse.errors = new List<ErrorData>() { new ErrorData() { code = usuarios.code.ToString(), detail = usuarios.result, status = usuarios.code, tittle = "Error interno del servidor" } };
-            return null;
+            if (usuarios != null && usuarios.code == 200)
+            {
+                return new UsuarioResponseDelete
+                {
+                    data = new UsuarioDataDelete
+                    {
+                        attributes = new UsuarioAttributesDelete { mensaje = usuarios.result },
+                        type = "usuarios"
+                    }
+                };
+            }
+            else
+            {
+                _errorResponse.errors = new List<ErrorData>
+                {
+                    new ErrorData
+                    {
+                        code = usuarios?.code.ToString() ?? "500",
+                        detail = usuarios?.result ?? "Error interno del servidor",
+                        status = usuarios?.code ?? 500,
+                        tittle = "Error interno del servidor"
+                    }
+                };
+                return null;
+            }
         }
-
-
-
-
-
-
-
     }
 }

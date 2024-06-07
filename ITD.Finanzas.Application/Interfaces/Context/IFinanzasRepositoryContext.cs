@@ -18,6 +18,7 @@ namespace ITD.Finanzas.Application.Interfaces.Context
         public IGastosContext GastosContext { get; }
         public IRegistrosContext RegistrosContext { get; }
         public IPresupuestosContext PresupuestosContext { get; }
+        public ILoginContext LoginContext { get; }
         
 
     }

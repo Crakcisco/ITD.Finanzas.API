@@ -8,6 +8,7 @@ namespace ITD.Finanzas.Domain.DTO.DATA.Atributes
 {
     public class CategoriasDto
     {
+        public int id {  get; set; }
         public string? nombre {  get; set; }
     }
 }

@@ -38,6 +38,7 @@ namespace ITD.Finanzas.Application.Presenters
             {
                 output.Add(new CategoriasDto()
                 {
+                    id = a.id,
                     nombre = a.nombre
                 });
             }

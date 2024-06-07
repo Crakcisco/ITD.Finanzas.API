@@ -29,6 +29,7 @@ namespace ITD.Finanzas.Infraestructure.Repository.Context
         public IGastosContext GastosContext => new GastosContext(_BD);
         public IRegistrosContext RegistrosContext => new RegistrosContext(_BD); 
         public IPresupuestosContext PresupuestosContext => new PresupuestosContext(_BD);
+        public ILoginContext LoginContext => new LoginContext(_BD);
 
     }
 }

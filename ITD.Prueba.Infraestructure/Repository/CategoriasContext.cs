@@ -70,7 +70,7 @@ namespace ITD.Finanzas.Infraestructure.Repository
         {
             DynamicParameters dpr = new DynamicParameters();
             dpr.Add("@id", patch.data.id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
-            dpr.Add("@nombre", patch.data.nombre, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            dpr.Add("@newName", patch.data.nombre, System.Data.DbType.String, System.Data.ParameterDirection.Input);
 
             var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Categoria_PATCH", dpr); // Asumiendo que tienes un procedimiento almacenado para actualizar categorías
 
@@ -91,7 +91,7 @@ namespace ITD.Finanzas.Infraestructure.Repository
         public async Task<EntityResultContext> Delete(int id)
         {
             DynamicParameters dpr = new DynamicParameters();
-            dpr.Add("@id", id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
+            dpr.Add("@p_id", id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
 
             var result = await _bDServices.ExecuteStoredProcedureQueryFirstOrDefault<EntityResultContext>("Categoria_DELETE", dpr); // Asumiendo que tienes un procedimiento almacenado para eliminar categorías
 

@@ -29,3 +29,5 @@ C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Application\obj\Debu
 C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Application\obj\Debug\net8.0\refint\ITD.Finanzas.Application.dll
 C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.pdb
 C:\Users\koke1\Source\Repos\Desarrollo-Moviles\ITD.Finanzas.Application\obj\Debug\net8.0\ref\ITD.Finanzas.Application.dll
+C:\Users\koke1\source\repos\Desarrollo-Moviles\ITD.Finanzas.Application\bin\Debug\net8.0\ITD.Finanzas.Application.runtimeconfig.json
+C:\Users\koke1\source\repos\Desarrollo-Moviles\ITD.Finanzas.Application\obj\Debug\net8.0\ITD.Finanzas.Application.genruntimeconfig.cache

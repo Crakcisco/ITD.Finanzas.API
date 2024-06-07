@@ -54,7 +54,7 @@ namespace ITD.Finanzas.Application.Presenters
         public async ValueTask<IngresosResponsePost> Patch(RequestIngresos patch)
         {
             var ingresos = await _repo.IngresosContext.Patch(patch);
-            if (ingresos.code == 200) // Cambiado de 201 a 200 para reflejar el éxito en la modificación
+            if (ingresos != null && ingresos.code == 200)
             {
                 return new IngresosResponsePost()
                 {
@@ -62,7 +62,7 @@ namespace ITD.Finanzas.Application.Presenters
                     {
                         attributes = new IngresosAttributes()
                         {
-                            usuario_id = patch.data.id, // Utilizando el nuevo nombre proporcionado en la solicitud
+                            usuario_id = patch.data.usuario_id, // Utilizando el usuario_id proporcionado en la solicitud
                             categoria_id = patch.data.categoria_id,
                             titulo = patch.data.titulo,
                             cantidad = patch.data.cantidad,
@@ -77,29 +77,52 @@ namespace ITD.Finanzas.Application.Presenters
                 };
             }
             _errorResponse.errors = new List<ErrorData>()
+    {
+        new ErrorData()
         {
-            new ErrorData()
-            {
-                code = ingresos.code.ToString(),
-                detail = ingresos.result,
-                status = ingresos.code,
-                tittle = "Error interno del servidor" // Corregido el nombre de la propiedad de 'tittle' a 'title'
-            }
-        };
+            code = ingresos?.code.ToString() ?? "500",
+            detail = ingresos?.result ?? "Error interno del servidor",
+            status = ingresos?.code ?? 500,
+            tittle = "Error interno del servidor" // Corregido el nombre de la propiedad de 'tittle' a 'title'
+        }
+    };
             return null;
         }
+
+
 
         //POST
 
         public async ValueTask<IngresosResponsePost> Post(RequestIngresos post)
         {
             var ingresos = await _repo.IngresosContext.Post(post);
-            if (ingresos.code == 201)
-                return new IngresosResponsePost() { data = new IngresosDataPost() { attributes = new IngresosAttributes() { mensaje = ingresos.result }, type = "Ingresos" } };
-            _errorResponse.errors = new List<ErrorData>() { new ErrorData() { code = ingresos.code.ToString(), detail = ingresos.result, status = ingresos.code, tittle = "Error interno del servidor" } };
-            return null;
-
+            if (ingresos != null && ingresos.code == 201)
+            {
+                return new IngresosResponsePost()
+                {
+                    data = new IngresosDataPost()
+                    {
+                        attributes = new IngresosAttributes() { mensaje = ingresos.result },
+                        type = "Ingresos"
+                    }
+                };
+            }
+            else
+            {
+                _errorResponse.errors = new List<ErrorData>
+        {
+            new ErrorData
+            {
+                code = ingresos?.code.ToString() ?? "500",
+                detail = ingresos?.result ?? "Error interno del servidor",
+                status = ingresos?.code ?? 500,
+                tittle = "Error interno del servidor"
+            }
+        };
+                return null;
+            }
         }
+
 
 
         //Delete

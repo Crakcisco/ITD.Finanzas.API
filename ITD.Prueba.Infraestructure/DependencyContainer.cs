@@ -17,6 +17,7 @@ namespace ITD.Finanzas.Infraestructure
 
             services.AddScoped<IFinanzasRepositoryContext, FinanzasRepositoryContext>();
 
+
            
             return services;
         }

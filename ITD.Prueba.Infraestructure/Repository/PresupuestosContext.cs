@@ -26,7 +26,7 @@ namespace ITD.Finanzas.Infraestructure.Repository
         {
             DynamicParameters dp = new();
             dp.Add("@id", id, System.Data.DbType.Int32); // Suponiendo que el nombre del parámetro en el procedimiento almacenado sea configuracionId
-            var result = await _bDServices.ExecuteStoredProcedureQuery<EntityPresupuestosContext>("Configuraciones_GET", dp);
+            var result = await _bDServices.ExecuteStoredProcedureQuery<EntityPresupuestosContext>("Presupuestos_GET", dp);
             List<EntityPresupuestosContext> configuraciones = result.ToList();
 
             if (configuraciones.Count > 0)
