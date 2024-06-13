@@ -13,8 +13,8 @@ namespace ITD.Finanzas.Application.Interfaces.Context
     public interface IIngresosContext
     {
         public ErrorData _errorData { get; set; }
-        public Task<List<EntityIngresosContext>> Get(int id);
-        public Task<EntityResultContext> Patch(RequestIngresos patch);
+        public Task<List<EntityIngresosContext>> GetAll();
+        public Task<EntityResultContext> Patch(RequestIngresosPatch patch);
         public Task<EntityResultContext> Post(RequestIngresos post);
         public Task<EntityResultContext> Delete(int id);
     }

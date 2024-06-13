@@ -15,8 +15,8 @@ namespace ITD.Finanzas.Domain.POCOS.Context
         public int categoria_id { get; set; }
         public string titulo { get; set; }
         public decimal cantidad { get; set; }
-        public DateOnly fecha { get; set; }
-        public TimeOnly hora { get; set; }
+        public DateTime fecha { get; set; }
+        public TimeSpan hora { get; set; }
         public string motivo { get; set; }
         public string tipo_ingreso { get; set; }
         public string notas { get; set; }

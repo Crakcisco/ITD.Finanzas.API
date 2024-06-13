@@ -34,9 +34,9 @@ namespace ITD.Finanzas.API.Controllers
 
         [ProducesResponseType(typeof(List<IngresosResponseGet>), (int)StatusResult.Success)]
         [ProducesResponseType(typeof(ErrorResponse), (int)StatusResult.badRequest)]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get()
         {
-            return Ok(await _ingresosLogic.Get(id));
+            return Ok(await _ingresosLogic.GetAll());
         }
 
 
@@ -47,7 +47,7 @@ namespace ITD.Finanzas.API.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(CategoriasResponse), (int)HttpStatusCode.OK)] // Cambiado HttpStatusCode.Created a HttpStatusCode.OK ya que PATCH no crea un nuevo recurso, sino que actualiza uno existente
-        public async Task<IActionResult> Patch(RequestIngresos patch)
+        public async Task<IActionResult> Patch(RequestIngresosPatch patch)
         {
             var result = await _ingresosLogic.Patch(patch);
             if (result == null)

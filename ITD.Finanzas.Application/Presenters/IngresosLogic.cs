@@ -33,43 +33,34 @@ namespace ITD.Finanzas.Application.Presenters
         }
 
         //GET
-        public async ValueTask<IngresosResponseGet> Get(int id)
+        public async ValueTask<IngresosResponseGet> GetAll()
         {
-            var ingresos = await _repo.IngresosContext.Get(id);
-            List<IngresosDto> output = new List<IngresosDto>();
-
-            foreach (EntityIngresosContext a in ingresos)
-            {
-                output.Add(new IngresosDto()
-                {
-                    id = a.id
-                });
-            }
-
-            // Devolver la respuesta después de completar el bucle foreach
+            var ingresos = await _repo.IngresosContext.GetAll();
+            List<IngresosDto> output = ingresos.Select(a => new IngresosDto { id = a.id, usuario_id = a.usuario_id, categoria_id= a.categoria_id, titulo = a.titulo, cantidad = a.cantidad, fecha= a.fecha,
+                hora= a.hora, motivo=a.motivo, tipo_ingreso= a.tipo_ingreso, notas=a.notas  /* otros campos aquí */ }).ToList();
             return new IngresosResponseGet() { data = new IngresosData() { attributes = output, type = "Ingresos" } };
         }
 
+
         //Agregue PATCH
-        public async ValueTask<IngresosResponsePost> Patch(RequestIngresos patch)
+        public async ValueTask<IngresosResponsePatch> Patch(RequestIngresosPatch patch)
         {
             var ingresos = await _repo.IngresosContext.Patch(patch);
             if (ingresos != null && ingresos.code == 200)
             {
-                return new IngresosResponsePost()
+                return new IngresosResponsePatch()
                 {
-                    data = new IngresosDataPost()
+                    data = new IngresosDataPatch()
                     {
-                        attributes = new IngresosAttributes()
+                        attributes = new IngresosAttributesPatch()
                         {
-                            usuario_id = patch.data.usuario_id, // Utilizando el usuario_id proporcionado en la solicitud
-                            categoria_id = patch.data.categoria_id,
+                            //usuario_id = patch.data.usuario_id, // Utilizando el usuario_id proporcionado en la solicitud
+                            //categoria_id = patch.data.categoria_id,
                             titulo = patch.data.titulo,
                             cantidad = patch.data.cantidad,
                             fecha = patch.data.fecha,
                             hora = patch.data.hora,
                             motivo = patch.data.motivo,
-                            tipo_ingreso = patch.data.tipo_ingreso,
                             notas = patch.data.notas
                         },
                         type = "ingresos"

@@ -27,30 +27,16 @@ namespace ITD.Finanzas.Infraestructure.Repository
             _errorData = new ErrorData();
         }
 
-        public async Task<List<EntityIngresosContext>> Get(int id)
+        //Get
+        public async Task<List<EntityIngresosContext>> GetAll()
         {
-            DynamicParameters dp = new();
-            dp.Add("@id", id, System.Data.DbType.Int32); // Suponiendo que el nombre del parámetro en el procedimiento almacenado sea configuracionId
-            var result = await _bDServices.ExecuteStoredProcedureQuery<EntityIngresosContext>("Ingresos_GET", dp);
-            List<EntityIngresosContext> ingresos = result.ToList();
-
-            if (ingresos.Count > 0)
-            {
-                switch (ingresos[0].code)
-                {
-                    case (int)StatusResult.Success:
-                        return ingresos;
-                    case (int)StatusResult.badRequest:
-                        return new List<EntityIngresosContext>();
-                    default:
-                        return new List<EntityIngresosContext>();
-                }
-            }
-            return new List<EntityIngresosContext>();
+            var result = await _bDServices.ExecuteStoredProcedureQuery<EntityIngresosContext>("Ingresos_GET_ALL");
+            return result.ToList();
         }
 
+
         //Agregue PATCH
-        public async Task<EntityResultContext> Patch(RequestIngresos patch)
+        public async Task<EntityResultContext> Patch(RequestIngresosPatch patch)
         {
             DynamicParameters dpr = new DynamicParameters();
             dpr.Add("@p_id", patch.data.id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
